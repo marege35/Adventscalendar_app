@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('https://cdn.pixabay.com/photo/2018/12/09/23/01/christmas-3864551_1280.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 20px 0;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.window {
+    background-color: #8B0000;
+    color: white;
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+}
+
+.window:hover {
+    transform: scale(1.1);
+}
+
+.window.locked {
+    background-color: #444;
+    cursor: not-allowed;
+}
+
+.window.opened {
+    background-color: #228B22;
+    color: #FFD700;
+    pointer-events: none;
+}
+
+.chore-display {
+    font-size: 1.8em;
+    margin-top: 20px;
+    animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.window.opened {
+    transform: rotateY(180deg);
+    transition: transform 0.5s ease-out;
+}
+/* General styling omitted for brevity */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 500px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#chore-text {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+}
